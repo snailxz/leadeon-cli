@@ -1,0 +1,14 @@
+{
+  "name": "leadeon-cli",
+  "version": "0.0.1",
+  "description": "a simple project for leadeon-cli",
+  "keywords": ["leadeon", "leadeon-cli"],
+  "author": "Snail",
+  "license": "MIT",
+  "bin": {
+    "leadeon": "./bin/leadeon",
+    "leadeon-cli": "./bin/leadeon",
+    "leadeon-init": "./bin/leadeon-init"
+  },
+  "repository": "https://github.com/snailxz/leadeon-cli.git"
+}
