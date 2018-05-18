@@ -2,13 +2,20 @@
   "name": "leadeon-cli",
   "version": "0.0.1",
   "description": "a simple project for leadeon-cli",
-  "keywords": ["leadeon", "leadeon-cli"],
+  "keywords": [
+    "leadeon",
+    "leadeon-cli"
+  ],
   "author": "Snail",
   "license": "MIT",
   "bin": {
-    "leadeon": "./bin/leadeon",
-    "leadeon-cli": "./bin/leadeon",
-    "leadeon-init": "./bin/leadeon-init"
+    "leadeon": "./bin/leadeon.js",
+    "leadeon-cli": "./bin/leadeon.js",
+    "leadeon-init": "./bin/leadeon-init.js"
   },
-  "repository": "https://github.com/snailxz/leadeon-cli.git"
+  "repository": "https://github.com/snailxz/leadeon-cli.git",
+  "preferGlobal": true,
+  "dependencies": {
+    "commander": "^2.15.1"
+  }
 }
