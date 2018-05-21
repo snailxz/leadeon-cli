@@ -2,8 +2,8 @@
 
 require('commander')
   .version(require('../package').version)
-  .usage('<command> [options]')
-  .command('init', 'generate a new project from a template')
-  .command('list', 'list available official templates')
-  .command('build', 'prototype a new project')
+  .description('a simlpe cli for leadeon web project')
+  .usage('<command>')
+  .command('init', 'create a new project straight from a github template')
   .parse(process.argv);
+

@@ -16,6 +16,11 @@
   "repository": "https://github.com/snailxz/leadeon-cli.git",
   "preferGlobal": true,
   "dependencies": {
-    "commander": "^2.15.1"
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "git-clone": "^0.1.0",
+    "inquirer": "^5.2.0",
+    "ora": "^2.1.0",
+    "shelljs": "^0.8.2"
   }
 }
