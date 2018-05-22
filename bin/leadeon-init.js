@@ -1,12 +1,20 @@
 #!/usr/bin/env node
 
-const program = require('commander')
 const exists = require('fs').existsSync
-const logger = require('../lib/logger')
+
+const program = require('commander')
 const chalk = require('chalk')
 const ora = require('ora')
 const download = require('git-clone')
 const shell = require('shelljs')
+
+const logger = require('../lib/logger')
+const ask = require('../lib/ask')
+const write = require('../lib/write')
+
+let typeValue = null
+let modValue = null
+let nameValue = null
 
 /**
  * Usage
@@ -19,7 +27,8 @@ program
         typeValue = type
         modValue = mod
         nameValue = name
-    });
+    })
+    .parse(process.argv);
 
 /**
  * help
@@ -36,8 +45,6 @@ program.on('--help', () => {
     console.log()
 })
 
-program.parse(process.argv);
-
 /**
  * check event
  */
@@ -46,21 +53,31 @@ if (typeof typeValue === 'undefined' || typeof modValue === 'undefined' || typeo
     program.help()
     process.exit(1)
 } else {
-    console.log(process.argv)
+    // if have this project
     if (exists(nameValue)) {
         logger.errorLog(` This project '${nameValue}' has already existed `)
         process.exit(1)
     }
-    downloadTemplate()
+    // get user config
+    ask.getUserInput(data => {
+        let host = ''
+        if (typeValue == 'vue' && modValue == 'spa' && nameValue) {
+            host = ''
+        } else if (typeValue == 'vue' && modValue == 'mpa' && nameValue) {
+            host = 'https://github.com/snailxz/leadeon-vue-mpa-template.git'
+        }
+        // dowload
+        downloadTemplate(host, data)
+    })
 }
 
 /**
  * dowload template
  */
-function downloadTemplate () {
+function downloadTemplate (gitHost, config) {
     const loading = ora(`download ${typeValue} ${modValue} template`)
     loading.start()
-    download('https://github.com/snailxz/leadeon-cli.git', nameValue, null, function (err) {
+    download(gitHost, nameValue, null, function (err) {
         loading.stop()
         if (err) {
             logger.errorLog(err)
@@ -69,6 +86,8 @@ function downloadTemplate () {
 
             // delete .git
             shell.rm('-rf', `${nameValue}/.git`)
+            // change package.json
+            write.changeJSON(`${nameValue}/package.json`, config)
         }
     })
 }
