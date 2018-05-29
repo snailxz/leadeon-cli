@@ -13,3 +13,7 @@
 
     leadeon-init vue mpa my-frist-project
 
+    # create a new vue mpa project Two-tier
+
+    leadeon-init vue mpa2 my-frist-project
+

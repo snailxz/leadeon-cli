@@ -37,11 +37,14 @@ program.on('--help', () => {
     console.log()
     console.log('  Examples:')
     console.log()
-    console.log(chalk.gray('    # create a new vue spa project'))
+    console.log(chalk.gray('    # 创建vue单页面应用'))
     console.log('    $ leadeon-init vue spa my-frist-project')
     console.log()
-    console.log(chalk.gray('    # create a new vue mpa project'))
+    console.log(chalk.gray('    # 创建vue多页面应用 一层目录'))
     console.log('    $ leadeon-init vue mpa my-frist-project')
+    console.log()
+    console.log(chalk.gray('    # 创建vue多页面应用 二层目录'))
+    console.log('    $ leadeon-init vue mpa2 my-frist-project')
     console.log()
 })
 
@@ -65,6 +68,8 @@ if (typeof typeValue === 'undefined' || typeof modValue === 'undefined' || typeo
             host = ''
         } else if (typeValue == 'vue' && modValue == 'mpa' && nameValue) {
             host = 'https://github.com/snailxz/leadeon-vue-mpa-template.git'
+        } else if (typeValue == 'vue' && modValue == 'mpa2' && nameValue) {
+            host = 'https://github.com/snailxz/leadeon-vue-mpa2-template.git'
         }
         // dowload
         downloadTemplate(host, data)
