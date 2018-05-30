@@ -65,7 +65,8 @@ if (typeof typeValue === 'undefined' || typeof modValue === 'undefined' || typeo
     ask.getUserInput(data => {
         let host = ''
         if (typeValue == 'vue' && modValue == 'spa' && nameValue) {
-            host = ''
+            logger.successLog('暂时不支持单页面模板，你可以直接用 vue-cli 生成')
+            process.exit()
         } else if (typeValue == 'vue' && modValue == 'mpa' && nameValue) {
             host = 'https://github.com/snailxz/leadeon-vue-mpa-template.git'
         } else if (typeValue == 'vue' && modValue == 'mpa2' && nameValue) {
