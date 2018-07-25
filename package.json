@@ -1,6 +1,6 @@
 {
   "name": "leadeon-cli",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "a simple project for leadeon-cli",
   "keywords": [
     "leadeon",
@@ -11,7 +11,8 @@
   "bin": {
     "leadeon": "./bin/leadeon.js",
     "leadeon-cli": "./bin/leadeon.js",
-    "leadeon-init": "./bin/leadeon-init.js"
+    "leadeon-init": "./bin/leadeon-init.js",
+    "leadeon-c": "./bin/leadeon-c.js"
   },
   "repository": {
     "type": "git",

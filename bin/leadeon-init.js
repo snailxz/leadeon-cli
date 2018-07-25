@@ -51,7 +51,7 @@ program.on('--help', () => {
 /**
  * check event
  */
-if (typeof typeValue === 'undefined' || typeof modValue === 'undefined' || typeof nameValue === 'undefined') {
+if (!typeValue || !modValue || !nameValue) {
     logger.errorLog(' Lack of a certain parameter ')
     program.help()
     process.exit(1)
@@ -68,9 +68,9 @@ if (typeof typeValue === 'undefined' || typeof modValue === 'undefined' || typeo
             logger.successLog('暂时不支持单页面模板，你可以直接用 vue-cli 生成')
             process.exit()
         } else if (typeValue == 'vue' && modValue == 'mpa' && nameValue) {
-            host = 'https://github.com/snailxz/leadeon-vue-mpa-template.git'
+            host = 'http://192.168.1.151/lixiangzhao/leadeon-vue-mpa-template.git'
         } else if (typeValue == 'vue' && modValue == 'mpa2' && nameValue) {
-            host = 'https://github.com/snailxz/leadeon-vue-mpa2-template.git'
+            host = 'http://192.168.1.151/lixiangzhao/leadeon-vue-mpa2-template.git'
         }
         // dowload
         downloadTemplate(host, data)
